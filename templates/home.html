@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+        .container {
+            max-width: 600px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Mental Health Prediction</h1>
+        <form method="POST" action="/">
+            <div class="form-group">
+                <label for="schizophrenia">Schizophrenia disorders:</label>
+                <input type="text" class="form-control" id="schizophrenia" name="schizophrenia" required>
+            </div>
+            <div class="form-group">
+                <label for="depressive">Depressive disorders:</label>
+                <input type="text" class="form-control" id="depressive" name="depressive" required>
+            </div>
+            <div class="form-group">
+                <label for="anxiety">Anxiety disorders:</label>
+                <input type="text" class="form-control" id="anxiety" name="anxiety" required>
+            </div>
+            <div class="form-group">
+                <label for="eating">Eating disorders:</label>
+                <input type="text" class="form-control" id="eating" name="eating" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Predict</button>
+        </form>
+        {% if prediction is not none %}
+        <div class="result text-center">
+            <h3>Prediction Result: {{ prediction }}</h3>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
