@@ -1,1 +1,1 @@
-# DepressionPrediction
+# DepressionPrediction project
