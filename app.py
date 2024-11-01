@@ -2,6 +2,7 @@ from flask import Flask, request, render_template
 import pickle
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
+import os
 
 app = Flask(__name__)
 
@@ -23,13 +24,13 @@ def home():
 
         # Create a DataFrame for the input values
         input_data = pd.DataFrame([{
-            'schizophrenia': schizophrenia,
-            'depressive': depressive,
-            'anxiety': anxiety,
-            'eating': eating
+            'Schizophrenia disorders': schizophrenia,
+            'Depressive disorders': depressive,
+            'Anxiety disorders': anxiety,
+            'Eating disorders': eating
+            
         }])
-
-        # Scale the input data
+       # Scale the input data
         input_scaled = scaler.transform(input_data)
 
         # Predict the value
@@ -38,7 +39,11 @@ def home():
         # Render the template with the predicted value
         return render_template('home.html', prediction=predicted_value[0])
 
+     
+
     return render_template('home.html', prediction=None)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
+
